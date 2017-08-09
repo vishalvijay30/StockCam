@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var V1 : View1 = View1(nibName: "View1", bundle: nil)
-        var V2 : View2 = View2(nibName: "View2", bundle: nil)
+        let V1 : View1 = View1(nibName: "View1", bundle: nil)
+        let V2 : View2 = View2(nibName: "View2", bundle: nil)
         
         self.addChildViewController(V1)
         self.scrollView.addSubview(V1.view)

@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
 
-class View2: UIViewController {
+class View2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var captureSession : AVCaptureSession?
+    var stillImageOutput : AVCaptureStillImageOutput?
+    var previewLayer : AVCaptureVideoPreviewLayer?
 
+    @IBOutlet weak var cameraView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +28,44 @@ class View2: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        previewLayer?.frame = cameraView.bounds
     }
-    */
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        captureSession = AVCaptureSession()
+        captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
+        
+        let backCamera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        
+        var errorThrown : NSError?
+        var input : AVCaptureDeviceInput?
+        do {
+            input = try AVCaptureDeviceInput(device: backCamera)
+        } catch {
+            errorThrown = error as NSError?
+        }
+        
+        if errorThrown == nil && (captureSession?.canAddInput(input))! {
+            captureSession?.addInput(input)
+            
+            stillImageOutput = AVCaptureStillImageOutput()
+            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+            
+            if (captureSession?.canAddOutput(stillImageOutput))! {
+                captureSession?.addOutput(stillImageOutput)
+                
+                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
+                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+                if let unwrappedPreviewLayer = previewLayer {
+                    cameraView.layer.addSublayer(unwrappedPreviewLayer)
+                }
+                captureSession?.startRunning()
+            }
+        }
+    }
 }
