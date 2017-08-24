@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F3E0561FEB547E0EB72A0EB /* Pods_StockCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754BE10AC3D537CE3C546E53 /* Pods_StockCam.framework */; };
 		C978CB341F394884009A4510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C978CB331F394884009A4510 /* AppDelegate.swift */; };
 		C978CB361F394884009A4510 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C978CB351F394884009A4510 /* ViewController.swift */; };
 		C978CB391F394884009A4510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C978CB371F394884009A4510 /* Main.storyboard */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E7FED9C0E06A24BF0F19E18 /* Pods-StockCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockCam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockCam/Pods-StockCam.debug.xcconfig"; sourceTree = "<group>"; };
+		754BE10AC3D537CE3C546E53 /* Pods_StockCam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockCam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		921F50C8A4BBF487216A8794 /* Pods-StockCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockCam.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockCam/Pods-StockCam.release.xcconfig"; sourceTree = "<group>"; };
 		C978CB301F394884009A4510 /* StockCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C978CB331F394884009A4510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C978CB351F394884009A4510 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F3E0561FEB547E0EB72A0EB /* Pods_StockCam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5FA8BBF9A7A092D48F8BB879 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E7FED9C0E06A24BF0F19E18 /* Pods-StockCam.debug.xcconfig */,
+				921F50C8A4BBF487216A8794 /* Pods-StockCam.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B7F833FB439FF677A0CB6868 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				754BE10AC3D537CE3C546E53 /* Pods_StockCam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C978CB271F394884009A4510 = {
 			isa = PBXGroup;
 			children = (
 				C978CB321F394884009A4510 /* StockCam */,
 				C978CB311F394884009A4510 /* Products */,
+				5FA8BBF9A7A092D48F8BB879 /* Pods */,
+				B7F833FB439FF677A0CB6868 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C978CB421F394884009A4510 /* Build configuration list for PBXNativeTarget "StockCam" */;
 			buildPhases = (
+				E1223818F349608CE109E2FE /* [CP] Check Pods Manifest.lock */,
 				C978CB2C1F394884009A4510 /* Sources */,
 				C978CB2D1F394884009A4510 /* Frameworks */,
 				C978CB2E1F394884009A4510 /* Resources */,
+				6A88EA1B24B0124191EB46D2 /* [CP] Embed Pods Frameworks */,
+				10942D66357D6DC9EECB7E4A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10942D66357D6DC9EECB7E4A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StockCam/Pods-StockCam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A88EA1B24B0124191EB46D2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StockCam/Pods-StockCam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1223818F349608CE109E2FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C978CB2C1F394884009A4510 /* Sources */ = {
@@ -274,6 +349,7 @@
 		};
 		C978CB431F394884009A4510 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E7FED9C0E06A24BF0F19E18 /* Pods-StockCam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X88U8J8PZ2;
@@ -287,6 +363,7 @@
 		};
 		C978CB441F394884009A4510 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 921F50C8A4BBF487216A8794 /* Pods-StockCam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X88U8J8PZ2;

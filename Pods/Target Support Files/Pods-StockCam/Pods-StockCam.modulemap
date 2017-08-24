@@ -1,0 +1,6 @@
+framework module Pods_StockCam {
+  umbrella header "Pods-StockCam-umbrella.h"
+
+  export *
+  module * { export * }
+}
